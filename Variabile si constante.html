@@ -1,0 +1,257 @@
+<html>
+	<head>
+		<title>Variabile și constante</title>
+	</head>
+<style>
+body {
+	padding:5px;
+	background-image:url('bg2.png');
+	}
+code {
+    font-size: 90%;
+    color: red;
+    background-color: #f9f2f4;
+}
+table, th, td {
+	font-size:20px;
+	background-color: FF923C;
+	text-align:left;
+	border: 5px;
+	border-color: 7138FF;
+	border-style: solid;
+}
+header {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+	padding: 10px;
+	color: #fff;
+	background-color: #488EAD;
+	background-image: linear-gradient(to bottom right, #11B600, #095F00);
+}
+.header-left{
+	font-size: 28px;
+}
+.header-center ul li{
+	display: inline-block;
+	margin: 0 15px;
+}
+.header-center ul li a{
+	font-size: 20px;
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+	line-height: 50px;
+}
+</style>
+<body background="imagine.jpg">
+<header>
+    <div class="header-left">Elemente de bază C++</div>
+    <div class="header-center">
+        <ul>
+            <li><a href="Introducere in C++.html">Introducere în C++</a></li>
+            <li><a href="Tipuri de date C++.html">Tipuri de date C++</a></li>
+            <li><a href="Variabile si constante.html">Variabile și constante</a></li>
+			<li><a href="Intrari si iesiri in C++.html">Intrări și ieșiri în C++</a></li>
+			<li><a href="Secvente escape.html">Secvențe escape</a></li>
+			<li><a href="Operatii de intrare si iesire cu fisiere in C++.html">Operații de intrare și ieșire cu fișiere în C++</a></li>
+			<li><a href="Operatori C++.html">Operatori C++</a></li>
+			<li><a href="Codul ASCII.html">Codul ASCII</a></li>
+			<li><a href="Aplicatii.html">Aplicații</a></li>
+			<li><a href="Bibliografie.html">Bibliografie</a></li>
+        </ul>
+    </div>
+</header>
+<font size=5>
+<p>Orice program prelucrează date. Acestea se află în memoria RAM a calculatorului, și pot fi variabile (valoarea datei se poate modifica) sau constante (valoarea nu se poate modifica).</p>
+
+<h1 align="center"><u>Variabile</u></h1>
+<p>O variabilă reprezintă o locație de memorie unde se află o valoare de un anumit tip. Orice variabilă este caracterizată de:</p>
+<ul>
+<li>adresa variabilei. Memoria RAM a calculatorului este adresată – fiecare octet (byte) din memorie are asociat un număr de ordine, începând de la 0. Acest număr reprezintă adresa acelui byte și se afișează implicit în baza 16.</li>
+<li>
+identificatorul variabilei – reprezintă un nume pentru variabilă – legătura dintre variabilă si adresa ei. Identificatorul respectă următoarele reguli:
+<ul type="circle">
+<li>conține litere mari, mici ale alfabetului englez cifre și caracterul de subliniere '_' – underline. Literele mari sunt considerate diferite de cele mici, astfel că Raspuns, raspuns și RASPUNS reprezintă identificatori diferiți.</li>
+<li>primul caracter nu poate fi cifră. Deși este posibil ca un identificator să înceapă cu '_', nu este recomandat, pentru a evita anumite conflicte cu identificatori de sistem.</li>
+<li>nu există limite legate de lungimea unui identificator, dar numai primele 31 de caractere sunt semnificative.</li>
+</ul>
+<li>tipul variabilei – stabilește ce fel de valori poate să ia variabila, între ce limite sunt acestea, precum și ce operații pot fi realizate cu variabila.</li>
+<li>domeniul de vizibilitate – reprezintă zona din program în care variabila există și poate fi utilizată. Variabilele pot fi globale sau locale.
+<ul type="circle">
+<li>variabilele locale se declară într-un bloc (între paranteze acolade {...}) și sunt vizibile doar în acel bloc. Au valori inițiale aleatorii.</li>
+<li>variabilele globale se declară în exteriorul oricărui bloc și sunt vizibile în toate blocurile care urmează declarării. Sunt inițializate cu 0.</li>
+</ul>
+</ul>
+
+<p>În C/C++, variabilele trebuie declarate, precizând tipul și identificatorul. Sintaxa este:</p>
+<p>&nbsp &nbsp &nbsp Tip_de_date Lista_identificatori ;</p>
+<p>unde Tip_de_date poate fi orice tip C++ corect (citește aici despre tipurile de date), iar Lista_identificatori este alcătuită din cel puțin un identificator. Dacă sunt mai mulți, se vor separa prin caracterul virgulă ,.</p>
+
+<p>Exemple:</p>
+<p>&nbsp &nbsp &nbsp int a , x;</p>
+<p>S-au declarat două variabile, cu numele a și x ce vor putea memora valori numere întregi.</p>
+
+<p>Următorii identificatori C++ sunt corecți: a, numar, Numar, alt_numar, a2b, _suma – nerecomandat, un_nume_de_variabila_foarte_lung.</p>
+
+<p>Următorii identificatori C++ sunt incorecți:</p>
+<ul>
+<li>2a – începe cu cifră. Identificatorii pot începe cu litere sau '_';</li>
+<li>alt numar – conține caracter interzis: spațiu;</li>
+<li>un-numar – contine caracter interzis: minus;</li>
+<li>număr – conține litera ă. Identificatorii pot conține numai litere ASCII – din alfabetul englez.</li>
+</ul>
+
+<h1 align="center"><u>Constante</u></h1>
+<p>Constantele sunt date care nu-și modifică valoarea în timpul execuției programului. Pot fi constante cu nume, sau constante literale, date direct prin valoarea lor.</p>
+
+<h2><u>Constante simbolice</u></h2>
+<p>Constantele simbolice (cu nume) pot fi precizate în două moduri:</p>
+
+<ul>
+<li>prin directiva define. Exemplu:<br>
+&nbsp &nbsp &nbsp #define MAX 101</li>
+<li>se pot declara variabile cu modificatorul const, iar valoarea lor nu mai poate fi modificată. Exemplu:<br>
+&nbsp &nbsp &nbsp const int MAX = 101;</li>
+
+</ul>
+<h2><u>Literali</u></h2>
+<p>Într-un program pot apărea valori constante, fie că sunt numere, caractere sau șiruri de caractere. Acestea se mai numesc constante literale sau literali.</p>
+
+<h2><u>Constante întregi</u></h2>
+<p>Reprezintă numere întregi – fără parte fracționară. Pot fi:</p>
+<ul>
+<li>onstante zecimale – în baza 10 : 176 -54 0. Pot conține cifrele: 0 1 2 3 4 5 6 7 8 9;</li>
+<li>Constante octale – în baza 8 : 015 062. Pot conține cifrele: 0 1 2 3 4 5 6 7 și încep întotdeauna cu 0;</li>
+<li>Constante hexazecimale – în baza 16 : 0x15 0x6f 0xff. Pot conține cifrele: 0 1 2 3 4 5 6 7 8 9 A B C D E F și încep întotdeauna cu 0x.</li>
+</ul>
+
+<h2><u>Constante reale</u></h2>
+<p>Reprezintă numere reale și se mai numesc în virgulă mobilă. Separatorul zecimal este caracterul punct '.' și pot apărea în două forme:</p>
+
+<ul>
+<li>scrierea standard: -1.5 14.974;</li>
+<li>scrierea științifică, cu mantisă și exponent. Numărul -0.567E+2 înseamnă -0.567*10+2, adică -56.7. -0567 reprezintă mantisa, iar -2 reprezintă exponentul.</li>
+</ul>
+<h2><u>Constante caracter – char</u></h2>
+<p>Sunt alcătuite dintr-un caracter, delimitat de apostroafe: '. De exemplu: 'a' 'B' '~' '?'. O categorie aparte de caractere este dată de secvențele ESCAPE. O secvență escape este alcătuită din două caractere, dintre care primul este backslash: \. Dintre secvențele escape amintim:</p>
+
+<ul>
+<li>'\b' – Backspace;</li>
+<li>'\f' – Form feed;</li>
+<li>'\n' – Newline;</li>
+<li>'\r' – Return;</li>
+<li>'\t' – TAB orizontal;</li>
+<li>'\\' – Backslash;</li>
+<li>'\'' – Apostrof;</li>
+<li>'\"' – Ghilimele;</li>
+<li>'\?' – Semn de întrebare;</li>
+<li>'\0' -Caracterul nul;</li>
+</ul>
+<h2><u>Constante șir de caractere</u></h2>
+<p>Sunt delimitate de ghilimele ". Pot să conțină secvențe escape. Exemple:</p>
+
+<p>"numar", "n = ", "Am terminat.\n"</p>
+
+<p>ATENȚIE: 'A' și "A" nu reprezintă același lucru: 'A' este un caracter, iar "A" este un șir de caractere, format dintr-un singur caracter!</p>
+
+<h2><u>Cuvinte rezervate</u></h2>
+<p>Nu orice cuvânt poate fi utilizat pe post de identificator. Există în C++ o listă de cuvinte care au o semnificație bine determinată și nu pot fi utilizate în alt scop. Ele se numesc cuvinte rezervate (keywords) și sunt următoarele:
+<table align="center">
+<tr>
+<td>
+<pre>alignas
+alignof
+and
+and_eq
+asm
+auto
+bitand
+bitor
+bool
+break
+case
+catch
+char
+char16_t
+char32_t
+class
+compl
+concept
+const
+constexpr
+const_cast
+continue
+decltype
+default
+delete
+do
+double
+dynamic_cast</pre>
+</td>
+<td>
+<pre>else
+enum
+explicit
+export
+extern
+false
+float
+for
+friend
+goto
+if
+inline
+int
+long
+mutable
+namespace
+new
+noexcept
+not
+not_eq
+nullptr
+operator
+or
+or_eq
+private
+protected
+public
+register
+reinterpret_cast</pre>
+</td>
+<td>
+<pre>requires
+return
+short
+signed
+sizeof
+static
+static_assert
+static_cast
+struct
+switch
+template
+this
+thread_local
+throw
+true
+try
+typedef
+typeid
+typename
+union
+unsigned
+using
+virtual
+void
+volatile
+wchar_t
+while
+xor
+xor_eq</pre>
+</td>
+</table>
+</font>
+</body>
+</html> 

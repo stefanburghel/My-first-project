@@ -1,0 +1,143 @@
+<html>
+	<head>
+		<title>Aplicații</title>
+	</head>
+<style>
+body {
+	padding:5px;
+	background-image:url('bg2.png');
+	}
+code {
+    font-size: 90%;
+    color: red;
+    background-color: #f9f2f4;
+}
+header {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+	padding: 10px;
+	color: #fff;
+	background-color: #488EAD;
+	background-image: linear-gradient(to bottom right, #11B600, #095F00);
+}
+.header-left{
+	font-size: 28px;
+}
+.header-center ul li{
+	display: inline-block;
+	margin: 0 15px;
+}
+.header-center ul li a{
+	font-size: 20px;
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+	line-height: 50px;
+}
+p {
+	font-family: "Georgia", serif;
+}
+a {
+	font-size: 40;
+	text-align: right;
+	float: right;
+}
+</style>
+<body background="imagine.jpg">
+<header>
+    <div class="header-left">Elemente de bază C++</div>
+    <div class="header-center">
+        <ul>
+            <li><a href="Introducere in C++.html">Introducere în C++</a></li>
+            <li><a href="Tipuri de date C++.html">Tipuri de date C++</a></li>
+            <li><a href="Variabile si constante.html">Variabile și constante</a></li>
+			<li><a href="Intrari si iesiri in C++.html">Intrări și ieșiri în C++</a></li>
+			<li><a href="Secvente escape.html">Secvențe escape</a></li>
+			<li><a href="Operatii de intrare si iesire cu fisiere in C++.html">Operații de intrare și ieșire cu fișiere în C++</a></li>
+			<li><a href="Operatori C++.html">Operatori C++</a></li>
+			<li><a href="Codul ASCII.html">Codul ASCII</a></li>
+			<li><a href="Aplicatii.html">Aplicații</a></li>
+			<li><a href="Bibliografie.html">Bibliografie</a></li>
+        </ul>
+    </div>
+</header>
+<font size=5>
+<h1 align="center">Aplicații</h1>
+<p>&nbsp &nbsp 1.Se citeste un numar natural n cu cel mult 2 cifre. Afisati pe ecran un romb cu latura n, format din caracterul *, incadrat intr-un patrat de latura 2n-1 format cu caracterul #, ca in exemplul alaturat pentru n=6.</p>
+<img src="1.png" height="266" width="180">
+<br>
+<a href="1.html">Rezolvare</a>
+<br>
+<p>&nbsp &nbsp 2.Sa se realizeze un program C++ care citeste masurile a doua unghiuri exprimate in grade si minute.<br>
+&nbsp &nbsp  Programul afiseaza media celor doua unghiuri, exprimata ca unghi, adica in grade, minute si secunde.<br>
+&nbsp &nbsp &nbsp &nbsp Exemplul 1: 57 20<br>
+&nbsp &nbsp &nbsp &nbsp 55 50<br>
+&nbsp &nbsp &nbsp &nbsp se va afisa : 56 35 0<br>
+&nbsp &nbsp &nbsp &nbsp Exemplul 2: 57 21<br>
+&nbsp &nbsp &nbsp &nbsp 55 50<br>
+&nbsp &nbsp &nbsp &nbsp se va afisa : 56 35 30<br></p>
+</p>
+<br>
+<a href="2.html">Rezolvare</a>
+<br>
+<p>&nbsp &nbsp 3.Pentru un numar natural n citit de la tastatura sa se afiseze n*n numere astfel:<br>
+&nbsp &nbsp &nbsp &nbsp 1 2 3 ... n<br>
+&nbsp &nbsp &nbsp &nbsp 2 3 4 ... n+1<br>
+&nbsp &nbsp &nbsp &nbsp 3 4 5 ... n+2<br>
+&nbsp &nbsp &nbsp &nbsp ......<br>
+&nbsp &nbsp &nbsp &nbsp n n+1 n+2 ... 2n-1<br></p>
+<br>
+<a href="3.html">Rezolvare</a>
+<br>
+<p>&nbsp &nbsp 4.Se citesc n numere naturale. Sa se afiseze cel care are suma divizorilor maxima.</p>
+<br>
+<a href="4.html">Rezolvare</a>
+<br>
+<p>&nbsp &nbsp 5.Se citesc 3 numere naturale z l a, reprezentand o data calendaristica in format zi luna an. Sa se afiseze data zilei anterioare.<br>
+&nbsp &nbsp &nbsp &nbsp Exemple:<br>
+&nbsp &nbsp &nbsp &nbsp 4 5 2000 => 3 5 2000<br>
+&nbsp &nbsp &nbsp &nbsp 1 2 2000 => 31 1 2000<br>
+&nbsp &nbsp &nbsp &nbsp 1 3 1999 => 28 2 1999</p>
+<br>
+<a href="5.html">Rezolvare</a>
+<br>
+<p>&nbsp &nbsp 6.Se citeste un numar natural n. Sa se descompuna ca produs de doua numere naturale consecutive. Daca acest lucru nu este posibil, atunci sa se afiseze mesajul "IMPOSIBIL".<br>
+&nbsp &nbsp &nbsp &nbsp Exemple:<br>
+&nbsp &nbsp &nbsp &nbsp 30 = 5*6<br>
+&nbsp &nbsp &nbsp &nbsp 20 = 4*5<br>
+&nbsp &nbsp &nbsp &nbsp 10 nu se poate descompune astfel.</p>
+<br>
+<a href="6.html">Rezolvare</a>
+<br>
+<p>&nbsp &nbsp 7.Se citesc numere naturale pana cand se introduce valoarea 0. Calculati si afisati media aritmetica a numerelor cu exact 2 cifre dintre cele citite.<br>
+&nbsp &nbsp &nbsp &nbsp Exemplu:<br>
+&nbsp &nbsp &nbsp &nbsp Se citesc numerele 3 4 12 2 13 444 0<br>
+&nbsp &nbsp &nbsp &nbsp Media va fi 12.5</p>
+<br>
+<a href="7.html">Rezolvare</a>
+<br>
+<p>&nbsp &nbsp 8.Se citesc 3 numere naturale n, a si b. Afisati primele n puteri ale lui 2 din intervalul [a,b]. Daca nu exista cel putin n puteri ale lui 2 in interval, atunci se vor afisa cele care exista.<br>
+&nbsp &nbsp &nbsp &nbsp Exemple: pentru n=2 a=6 b=35 se vor afisa valorile 8 si 16<br>
+&nbsp &nbsp &nbsp &nbsp pentru n=2 a=24 b=55 se va afisa valoarea 32.</p>
+<br>
+<a href="8.html">Rezolvare</a>
+<br>
+<p>&nbsp &nbsp 9.Folosind operatorul conditional, calculati de cate sticle de cate x litri fiecare este nevoie pentru a umple un vas de y litri.<br>
+&nbsp &nbsp &nbsp &nbsp Exemplu:<br>
+&nbsp &nbsp &nbsp &nbsp daca x=4 si y=20 , atunci e nevoie de 5 sticle<br>
+&nbsp &nbsp &nbsp &nbsp daca x=4 si y=23 , atunci e nevoie de 6 sticle </p>
+<br>
+<a href="9.html">Rezolvare</a>
+<br>
+<p>&nbsp &nbsp Se citesc doua numere naturale a si l. a reprezinta un an iar l numarul unei luni din anul a. Afisati cate zile are luna l. Se va tine cont daca anul a este bisect.<br>
+&nbsp &nbsp &nbsp &nbsp Exemplu:<br>
+&nbsp &nbsp &nbsp &nbsp a=2008<br>
+&nbsp &nbsp &nbsp &nbsp l=2<br>
+&nbsp &nbsp &nbsp &nbsp rezultatul este 29 deoarece luna febrauarie are 29 de zile in anii bisecti.</p>
+<br>
+<a href="10.html">Rezolvare</a>
+<br>
+</font>
+</body>
+</html> 

@@ -1,0 +1,207 @@
+<html>
+	<head>
+		<title>Intrări și ieșiri în C++ </title>
+	</head>
+<style>
+body {
+	padding:5px;
+	background-image:url('bg2.png');
+}
+code {
+    font-size: 90%;
+    color: red;
+    background-color: #f9f2f4;
+}
+table, th, td {
+	font-size:20px;
+	background-color: FF923C;
+	text-align:left;
+	border: 5px;
+	border-color: 7138FF;
+	border-style: solid;
+}
+header {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+	padding: 10px;
+	color: #fff;
+	background-color: #488EAD;
+	background-image: linear-gradient(to bottom right, #11B600, #095F00);
+}
+.header-left{
+	font-size: 28px;
+}
+.header-center ul li{
+	display: inline-block;
+	margin: 0 15px;
+}
+.header-center ul li a{
+	font-size: 20px;
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+	line-height: 50px;
+}
+</style>
+<body background="imagine.jpg">
+<header>
+    <div class="header-left">Elemente de bază C++</div>
+    <div class="header-center">
+        <ul>
+            <li><a href="Introducere in C++.html">Introducere în C++</a></li>
+            <li><a href="Tipuri de date C++.html">Tipuri de date C++</a></li>
+            <li><a href="Variabile si constante.html">Variabile și constante</a></li>
+			<li><a href="Intrari si iesiri in C++.html">Intrări și ieșiri în C++</a></li>
+			<li><a href="Secvente escape.html">Secvențe escape</a></li>
+			<li><a href="Operatii de intrare si iesire cu fisiere in C++.html">Operații de intrare și ieșire cu fișiere în C++</a></li>
+			<li><a href="Operatori C++.html">Operatori C++</a></li>
+			<li><a href="Codul ASCII.html">Codul ASCII</a></li>
+			<li><a href="Aplicatii.html">Aplicații</a></li>
+			<li><a href="Bibliografie.html">Bibliografie</a></li>
+        </ul>
+    </div>
+</header>
+<font size=5>
+<h1 align="center"><u>Intrări și ieșiri în C++</u></h1>
+<p>Operațiile de de intrare/ieșire sunt operațiile prin care un program primește date sau afișează rezultate. Aceste operații trebuie privite din perspectiva programului:</p>
+<ul>
+<li>operații de intrare: datele intră în program, programul citește date</li>
+<li>operații de ieșire: datele ies din program, programul afișează date</li>
+</ul>
+<p>Practic, datele care intră în program sau ies din program sunt șiruri de caractere pe care programul le primește, respectiv le trimite</p>
+
+<p>Limbajul C++ oferă o modalitate uniformă de a realiza operațiile de intrare/ieșire, indiferent dacă se fac la consolă, în fișiere, sau cu alte dispozitive care prelucrează caractere. Este vorba despre stream sau flux. Stream-ul poate fi privit ca o înșiruire de caractere care sunt trimise într-o ordine bine determinată de la o sursă la o destinație. Programul va insera caractere în stream (dacă este un stream de ieșire, care afișează date) sau va extrage caractere din stream (dacă este un stream de intrare, din care se citesc date).</p>
+
+<p>Biblioteca standard C++ permite lucrul cu mai multe categorii de stream-uri. Dintre acestea vom discuta în continuare despre stream-urile cu consola, dispozitivul standard de intrare-ieșire, altfel spus stream-uri care permit citirea de la tastatură și afișarea pe ecran. Obiectele care permit aceste operații sunt:</p>
+<ul>
+<li>cin – stream standard de intrare;</li>
+<li>cout – stream standard de ieșire;</li>
+<li>cerr – stream standard de ieșire pentru erori;</li>
+<li>clog – stream standard de ieșire pentru înregistrarea evenimentelor.</li>
+</ul>
+<img src="poza1.png" align="center">
+<p>În continuare vom vorbi despre cout și cin – stream-ul standard de ieșire și de intrare. cerr și clog sunt și ele stream-uri de ieșire și funcționează precum cout; mai mult, de cele mai multe ori fac exact același lucru ca și cout – afișează pe ecran. Există însă situații când ieșirea produsă de cerr sau clog este redirectată către alte dispozitive.</p>
+
+<h2><u>Stream-ul de ieșire cout</u></h2>
+<p>În cele mai multe cazuri, dispozitivul standard de ieșire este ecranul și poate fi accesat cu stream-ul cout. Pentru aceasta, cout se folosește împreună cu operatorul de inserție &lt&lt, urmat de data care se va afișa:</p>
+<code>
+<pre>cout &lt&lt "Salut"; // afiseaza pe ecran Salut
+cout &lt&lt 17; // afiseaza numarul 17 pe ecran
+cout &lt&lt n; // afiseaza pe ecran valoarea variabilei n</pre>
+</code>
+<p>Operatorul cout afișează în stream-ul din stânga valoarea din dreapta. Să observăm că "Salut" este delimitat de ghilimele, deoarece este o constantă literal de tip șir de caractere, iar n nu este delimitată de ghilimele, deoarece este o variabilă.</p>
+
+<p>Dacă textul care urmează după &lt&lt este între ghilimele, se va afișa ca atare. Dacă nu este între ghilimele, se consideră că este o variabilă, și se afișează valoarea ei.</p>
+<code>
+<pre>cout &lt&lt "Salut"; //afiseaza cuvantul Salut
+cout &lt&lt Salut; // afiseaza valoare variabilei Salut</pre>
+</code>
+<p>Putem afișa mai multe valori în aceeași instrucțiune:</p>
+<code>
+<pre>cout &lt&lt "Ana " &lt&lt "are" &lt&lt " mere."; // se va afisa Ana are mere</pre>
+</code>
+
+<p>sau</p>
+<code>
+<pre>int nr_mere = 17;
+cout &lt&lt "Ana " &lt&lt "are " &lt&lt nr_mere &lt&lt " mere."; // se va afisa Ana are 17 mere</pre>
+</code>
+<p>cout nu adaugă automat sfârșit de linie sau spatii. De exemplu:</p>
+<code>
+<pre>cout &lt&lt "Aceasta este o";
+cout &lt&lt "propozitie mai lunga!";</pre>
+</code>
+<p>va afișa:</p>
+<code>
+<pre>Aceasta este opropozitie mai lunga!</pre>
+</code>
+<p>Pentru a insera spațiu între o și propoziție, îl precizăm explicit:</p>
+<code>
+<pre>cout &lt&lt "Aceasta este o "; // este un spatiu dupa o
+cout &lt&lt "propozitie mai lunga!";</pre>
+</code>
+<p>sau</p>
+
+<code>
+<pre>cout &lt&lt "Aceasta este o";
+cout &lt&lt " propozitie mai lunga!"; // la inceput este un spatiu</pre>
+</code>
+<p>Dacă vrem să afișăm pe linii diferite procedăm astfel:</p>
+<code>
+<pre>cout &lt&lt "Aceasta este o\n";
+cout &lt&lt "propozitie mai lunga!";</pre>
+</code>
+<p>O altă variantă este să folosim manipulatorul endl pentru a întrerupe linia. De exemplu:</p>
+<code>
+<pre>cout &lt&lt "Aceasta este o" &lt&lt endl;
+cout &lt&lt "propozitie mai lunga!";</pre>
+</code>
+<p>Ambele variante de mai sus vor afișa:</p>
+<code>
+<pre>Aceasta este o
+propozitie mai lunga!</pre>
+</code>
+<p>endl produce un caracter rând nou, exact ca și inserarea lui \n, dar mai face ceva: endl golește buffer stream-ului cout, adică forțează afișarea pe ecran tuturor caracterelor inserate în stream până în acest moment. endl produce întârzieri în execuția programului, deci trebuie folosit cu precauție.
+
+<h2><u>Stream-ul de intrare cin</u></h2>
+
+<p>În cele mai multe cazuri, dispozitivul standard de intrare este tastatura și poate fi accesat cu stream-ul cin. Pentru aceasta, cin se folosește împreună cu operatorul de extragere &gt&gt, urmat de variabila în care se va memora valoarea extrasă (variabila care se va citi):</p>
+<code>
+<pre>int n;
+cin &gt&gt n;</pre>
+</code>
+<p>Mai întâi se declară variabila n, apoi se citește o valoare pentru ea – se extrage din cin o valoare care se memorează în variabila n. La execuție, programul așteaptă să se introducă o valoare de la tastatură. De fapt, caracterele introduse sunt transmise programului numai când se apasă tasta ENTER.</p>
+
+<p>Să considerăm următorul program:</p>
+<code>
+<pre>#include <iostream>
+using namespace std;
+int main()
+{
+    int n = 7;
+    cout &lt&lt "n = ";
+    cin &gt&gt n;
+    cout &lt&lt "n este " &lt&lt n &lt&lt endl;
+    cout &lt&lt "patratul lui n este " &lt&lt n * n &lt&lt endl;
+    return 0; 
+}</pre>
+</code>
+<p>Rezultatul său depinde de valoare introdusă pentru n. Ar putea fi:</p>
+<code>
+<pre>n = 25
+n este 25
+patratul lui n este 625</pre>
+</code>
+<p>Dar dacă se nu se introduce un număr?</p>
+<code>
+<pre>n = salut
+n este 0
+patratul lui n este 0</pre>
+</code>
+<p>La operația de extragere din cin contează tipul variabilei de după &gt&gt. Caracterele din stream sunt interpretate în funcție de tipul variabilei. Dacă aceste caractere nu corespund cu tipul variabilei, operația de extragere eșuează. Dacă operația de extragere din stream eșuează:</p>
+<ul>
+		<li>variabila nu se modifică și se setează un marcaj de eroare (failbit) – până la C++11;</li>
+		<li>variabila primește valoarea 0 și se setează failbit. Dacă valoarea extrasă depășeste limitele tipului variabilei, aceasta primește valoarea maximă sau minimă a tipului său și se setează failbit – de la C++11.</li>
+</ul>
+
+<p>Se pot citi valorile a două sau mai multe variabile în aceeași instrucțiune:</p>
+<code>
+<pre>cin &gt&gt x &gt&gt y;</pre>
+</code>
+<p>este echivalent cu</p>
+<code>
+<pre>cin &gt&gt x;
+cin &gt&gt y;</pre>
+</code>
+<p>În ambele cazuri se așteaptă introducerea a două valori; acestea pot fi separate/precedate prin orice fel de caractere albe: spații, TAB-uri, caractere rând nou.</p>
+
+<p>Una dintre cele mai frecvente erori este inversarea operatorilor pentru stream-urile cin și cout, sau citirea valorii unei constante. Următoarele instrucțiuni sunt greșite:</p>
+<code>
+<pre>cout &gt&gt "Salut"; 
+cin &lt&lt n;
+cin &gt&gt "Salut";</pre>
+</code>
+</font>
+</body>
+</html> 

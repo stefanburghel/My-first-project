@@ -1,0 +1,177 @@
+<html>
+	<head>
+		<title>Tipuri de date C++</title>
+	</head>
+<style>
+body {
+	padding:5px;
+	background-image:url('bg2.png');
+	}
+code {
+    font-size: 90%;
+    color: red;
+    background-color: #f9f2f4;
+}
+table, th, td {
+	font-size:20px;
+	background-color: 17AEFF;
+	text-align:left;
+	border: 5px green;
+	border-style: ridge;
+	border-collapse: collapse;
+}
+header {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+	padding: 10px;
+	color: #fff;
+	background-color: #488EAD;
+	background-image: linear-gradient(to bottom right, #11B600, #095F00);
+}
+.header-left{
+	font-size: 28px;
+}
+.header-center ul li{
+	display: inline-block;
+	margin: 0 15px;
+}
+.header-center ul li a{
+	font-size: 20px;
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+	line-height: 50px;
+}
+</style>
+<body background="imagine.jpg">
+<header>
+    <div class="header-left">Elemente de bază C++</div>
+    <div class="header-center">
+        <ul>
+            <li><a href="Introducere in C++.html">Introducere în C++</a></li>
+            <li><a href="Tipuri de date C++.html">Tipuri de date C++</a></li>
+            <li><a href="Variabile si constante.html">Variabile și constante</a></li>
+			<li><a href="Intrari si iesiri in C++.html">Intrări și ieșiri în C++</a></li>
+			<li><a href="Secvente escape.html">Secvențe escape</a></li>
+			<li><a href="Operatii de intrare si iesire cu fisiere in C++.html">Operații de intrare și ieșire cu fișiere în C++</a></li>
+			<li><a href="Operatori C++.html">Operatori C++</a></li>
+			<li><a href="Codul ASCII.html">Codul ASCII</a></li>
+			<li><a href="Aplicatii.html">Aplicații</a></li>
+			<li><a href="Bibliografie.html">Bibliografie</a></li>
+        </ul>
+    </div>
+</header>
+<font size=5>
+<h1 align="center"><u>Tipuri de date C++</u></h1>
+<p>Tipul de date reprezintă un concept foarte important în C/C++. Orice dată (constantă sau variabilă) este de un numit tip. Tipul datei precizează ce valori poate avea acea dată și ce operații se pot face cu ea.</p>
+<p>În C/C++ tipurile de date sunt:</p>
+<ol>
+<li>Tipuri simple</li>
+	<ul>
+		<li>Tipuri întregi;</li>
+		<li>Tipuri reale;</li>
+		<li>Tipul pointer;</li>
+		<li>Tipul bool;</li>
+	</ul>	
+<li>Tipuri derivate</li>
+	<ul>
+		<li>Tipul tablou;</li>
+		<li>Tipul structură;</li>
+		<li>Tipul enumerare.</li>
+</ul>
+</ol>
+
+<h2><u>Tipurile întregi</u></h2>
+<p>Tipurile întregi permit memorarea de valori întregi. Tipul de bază este int. O dată de tip int poate memora valori întregi cuprinse între -231 și 231-1.</p>
+<p>Tipurile întregi diferă prin numărul de octeți necesari pentru memorarea datei, tipul datei (cu semn sau fără semn) și implicit intervalul de valori pe care le pate lua respectiva dată. Tipurile întregi sunt:</p>
+
+<table>
+<tr>
+	<th>Denumire tip</th>
+	<th>Reprezentare</th>
+	<th colspan="2">Interval de valori</th>
+</tr>
+<tr>
+	<td>int</td>
+	<td>4 octeți cu semn</td>
+	<td>-2<sup>31</sup> ... 2<sup>31</sup>-1</td>
+	<td>-2147483648 ... 2147483647</td>
+</tr>
+<tr>
+	<td>unsigned int</td>
+	<td>4 octeți fără semn</td>
+	<td>0 ... 2<sup>32</sup>-1</td>
+	<td>0 ... 4294967295</td>
+</tr>
+<tr>
+	<td>long int</td>
+	<td>4 octeți cu semn</td>
+	<td>-2<sup>31</sup> ... 2<sup>31</sup>-1</td>
+	<td>-2147483648 ... 2147483647</td>
+</tr>
+<tr>
+	<td>unsigned long int</td>
+	<td>4 octeți fără semn</td>
+	<td>0 ... 2<sup>32</sup>-1</td>
+	<td>0 ... 4294967295</td>
+</tr>
+<tr>
+	<td>short int</td>
+	<td>2 octeți cu semn</td>
+	<td>-2<sup>15</sup> ... 2<sup>15</sup>-1</td>
+	<td>-32768 ... 32767</td>
+</tr>
+<tr>
+	<td>unsigned short int</td>
+	<td>2 octeți fără semn</td>
+	<td>0 ... 2<sup>16</sup>-1</td>
+	<td>0 ... 65535</td>
+</tr>
+<tr>
+	<td>long long int</td>
+	<td>8 octeți cu semn</td>
+	<td>-2<sup>63</sup> ... 2<sup>63</sup>-1	</td>
+	<td></td>
+</tr>
+<tr>
+	<td>unsigned long long int</td>
+	<td>8 octeți fără semn</td>
+	<td>0 ... 2<sup>64</sup>-1	</td>
+	<td></td>
+</tr>
+<tr>
+	<td>char</td>
+	<td>1 octet cu semn</td>
+	<td>-2<sup>7</sup> ... 2<sup>7</sup>-1</td>
+	<td>-128 ... 127</td>
+</tr>
+<tr>
+	<td>unsigned char</td>
+	<td>1 octet fără semn</td>
+	<td>0 ... 2<sup>8</sup>-1</td>
+	<td>0 ... 255</td>
+</tr>
+</table>
+
+<p>Tipurile char și unsigned char memorează valori întregi. La afișarea unei date de acest tip nu se va afișa numărul pe care îl memorează ci caracterul care are are codul ASCII egal cu acel număr. Operația de citire a unei date de acest tip este similară.</p>
+
+<h2><u>Tipurile reale – în virgulă mobilă</u></h2>
+<p>Memorează valori reale, reprezentate prin mantisă și exponent. În acest mod se pot reprezenta valori foarte mari, dar precizia reprezentării poate fi slabă – numărul de cifre semnificative memorate poate fi mult mai mic decât numărul de cifre din număr.</p>
+
+<p>Tipurile reale sunt:</p>
+<ul>
+<li>float – se reprezinta pe 4 octeți;</li>
+<li>double – se reprezinta pe 8 octeți;</li>
+<li>long double – se reprezinta pe 10 octeți;</li>
+</ul>
+<h2><u>Tipul pointer</u></h2>
+<p>O dată de tip pointer memorează o adresă de memorie – de exemplu adresa unei variabile.<p>
+
+<h2><u>Tipul bool</u></h2>
+<p>Anumite operații care se fac cu datele au ca rezultat valori de adevăr: adevărat sau false. În anumite limbaje de programare există un tip de date care memorează exact aceste două valori.</p>
+
+<p>În limbajul C++ există tipul bool. Acest tip conține două valori: literalii true și false. De fapt, acestea sunt redenumiri ale valorilor 1 și 0.</p>
+</font>
+</body>
+</html> 

@@ -1,0 +1,166 @@
+<html>
+	<head>
+		<title>Operații de intrare și ieșire cu fișieie în C++</title>
+	</head>
+<style>
+body {
+	padding:5px;
+	background-image:url('bg2.png');
+	}
+code {
+    font-size: 90%;
+    color: red;
+    background-color: #f9f2f4;
+}
+table, th, td {
+	font-size:20px;
+	background-color: FF923C;
+	text-align:left;
+	border: 5px;
+	border-color: 7138FF;
+	border-style: solid;
+	}
+header {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+	padding: 10px;
+	color: #fff;
+	background-color: #488EAD;
+	background-image: linear-gradient(to bottom right, #11B600, #095F00);
+}
+.header-left{
+	font-size: 28px;
+}
+.header-center ul li{
+	display: inline-block;
+	margin: 0 15px;
+}
+.header-center ul li a{
+	font-size: 20px;
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+	line-height: 50px;
+}
+</style>
+<body background="imagine.jpg">
+<header>
+    <div class="header-left">Elemente de bază C++</div>
+    <div class="header-center">
+        <ul>
+            <li><a href="Introducere in C++.html">Introducere în C++</a></li>
+            <li><a href="Tipuri de date C++.html">Tipuri de date C++</a></li>
+            <li><a href="Variabile si constante.html">Variabile și constante</a></li>
+			<li><a href="Intrari si iesiri in C++.html">Intrări și ieșiri în C++</a></li>
+			<li><a href="Secvente escape.html">Secvențe escape</a></li>
+			<li><a href="Operatii de intrare si iesire cu fisiere in C++.html">Operații de intrare și ieșire cu fișiere în C++</a></li>
+			<li><a href="Operatori C++.html">Operatori C++</a></li>
+			<li><a href="Codul ASCII.html">Codul ASCII</a></li>
+			<li><a href="Aplicatii.html">Aplicații</a></li>
+			<li><a href="Bibliografie.html">Bibliografie</a></li>
+        </ul>
+    </div>
+</header>
+<font size=5>
+<h1 align="center"><u>Operații de intrare și ieșire cu fișiere în C++</u></h1>
+<p>Operațiile standard de intrare/ieșire se fac cu tastatură și ecranul, dar este posibil să realizăm și citiri din fișiere text, respectiv scrieri în fișiere text. Pentru a realiza operațiile propriu-zise, fișierele sunt asociate cu fluxuri de date, iar operațiile sunt similare cu cele cu tastatura și ecranul.</p>
+
+<h2><u>Etapele lucrului cu fișiere text</u></h2>
+<p>În C++ există mai multe modalități de lucru cu fișiere text. Toate respectă următoarele etape:</p>
+<code>
+<pre>deschiderea fișierului/asocierea fișierelui cu un flux de date;
+citirea din fișier/scrierea în fișir;
+închiderea fișiereul/fluxului de date</pre>
+</code>
+
+<h2><u>Deschiderea fișierului</u></h2>
+
+<p>O modalitate uzuală de a deschide fișiere constă în declararea unor variabile de tip flux. Acestea sunt de tip:</p>
+
+<ul><li>ostream pentru fluxurile de ieșire – asociate cu fișierele în care vom scrie;</li>
+<li>istream pentru fluxurile de intrare – asociate cu fișierele din care vom citi;</li>
+</ul>
+<p>Declararea variabilelor se poate face astfel:</p>
+
+<code>
+<pre>istream fin(NUME_FISIER_INTRARE);
+ostream fout(NUME_FISIER_IESIRE);</pre>
+</code>
+
+<p>NUME_FISIER_INTRARE și NUME_FISIER IESIRE sunt șiruri de caractere care conțin numele fișierelor din care se face citirea/în care se face scrierea, de exemplu:</p>
+
+<code>
+<pre>istream fin("fisier.in");
+ostream fout("fisier.out");</pre>
+</code>
+
+<p>Nu este obligatoriu să folosim extensiile .in și .out, dar ele sunt sunt frecvent folosite în algoritmică, pentru a desemna fișierul de intrare (INput), respectiv fișierul de ieșire (OUTput.)</p>
+
+<p>fin și fout sunt identificatori de variabile. Putem folosi orice identificator, dar alegerea unor nume clare precum cin și cout, sau is (input stream) și os (outpur stream) fac, considerăm noi, programele mai ușor de înțeles și depanat.</p>
+
+<p>Secvența de mai sus realizează simultan două operații: declararea variabilei de tip flux și dechiderea acestuia (asocierea cu fișierul corespunzător). Ele pot fi realizate și independent, de exemplu astfel:</p>
+
+<code>
+<pre>istream fin;
+fin.open("fisier.in");</pre>
+</code>
+
+<p>sau</p>
+
+<code><pre>fstream fin("fisier.in", ios::in), fout("fisier.out", ios::out);</pre>
+</code>
+
+<p>Declararea variabilelor de tip flux se poate face oriunde, cu respectarea restricțiilor cunoscute: orice variabilă folosită trebuie să fi fost anterior declarată.</p>
+
+<h2><u>Citirea din fișier/scrierea în fișier</u></h2>
+
+<p>Pentru citirea propiu-zisă a datelor din fișier/scrierea datelor în fișier se folosesc operatorii de extracție din flux/inserare în flux.</p>
+
+<p>De exemplu:</p>
+
+<code>
+<pre>int x;
+fin &gt&gt x;
+fout &lt&lt 2 * x;</pre>
+</code>
+
+<h2><u>Închiderea fișierelor</u></h2>
+
+<p>Se face astfel:</p>
+
+<code>
+<pre>fin.close();
+fout.close();</pre>
+</code>
+
+<h2><u>Un exemplu complet</u></h2>
+<p>Următorul program este soluție corectă pentru calcularea sumei a 2 numere date:</p>
+
+<code>
+<pre>#include &ltiostream&gt
+#include &ltfstream&gt
+
+using namespace std;
+
+ifstream fin("sum.in");
+ofstream fout("sum.out");
+
+int main()
+{
+    int a , b, s;
+    fin &gt&gt a &gt&gt b;
+    fin.close();
+    s = a + b;
+    fout &lt&lt s;
+    fout.close();
+    return 0;
+}</pre>
+</code>
+<h2><u>Observații</u></h2>
+<ul type="dash">fișierele de intrare (deschise pentru citire) trebuie să existe. Dacă se deschide pentru citire un fișier care nu există, operațiile de citire (fin >> ...) vor eșua și comportamentul programului devine de multe ori impredictibil;
+fișierele de ieșire (deschise pentru scriere) nu trebuie să existe. La deschidere ele vor fi create. Dacă fișierul de ieșire există conținurul său va fi înlocuit cu datele scrise de programul care rulează.
+</ul>
+</font>
+</body>
+</html> 
